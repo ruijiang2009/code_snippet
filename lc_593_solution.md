@@ -1,3 +1,4 @@
+https://leetcode.com/problems/valid-square/discuss/103435/Simple-Java-Solution-Square-distances
 ```
 public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
   long[] lengths = {
@@ -6,9 +7,12 @@ public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
       length(p3, p4),
       length(p4, p1),
       length(p1, p3),
-      ength(p2, p4)}; // all 6 sides
+      length(p2, p4)
+  }; // all 6 sides
 
-  long max = 0, nonMax = 0;
+  long max = 0;
+  long nonMax = 0;
+
   for(long len : lengths) {
     max = Math.max(max, len);
   }
@@ -37,5 +41,6 @@ public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
 private long length(int[] p1, int[] p2) {
   return (long)Math.pow(p1[0]-p2[0],2) + (long)Math.pow(p1[1]-p2[1], 2);
 }
+```
 
 ```
