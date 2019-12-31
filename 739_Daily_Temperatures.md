@@ -12,6 +12,7 @@ class Solution {
                 stack.pop();
                 result[idx] = i - idx;
             }
+            stack.push(i);
         }
 
         return result;
