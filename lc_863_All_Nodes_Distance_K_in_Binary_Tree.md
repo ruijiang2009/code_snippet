@@ -17,9 +17,15 @@ public:
     }
 
     void findParent(TreeNode* node, unordered_map<TreeNode*, TreeNode*>& parent) {
-        if (!node) return;
-        if (node->left) parent[node->left] = node;
-        if (node->right) parent[node->right] = node;
+        if (!node) {
+         return;
+        }
+        if (node->left) {
+            parent[node->left] = node;
+        }
+        if (node->right) {
+            parent[node->right] = node;
+        }
         findParent(node->left, parent);
         findParent(node->right, parent);
     }
@@ -29,18 +35,22 @@ public:
             return;
         }
         visited.insert(node);
+
         if (K == 0) {
-            res.push_back(node->val); return;
+            res.push_back(node->val); 
+            return;
         }
+
         if (node->left) {
             helper(node->left, K - 1, parent, visited, res);
         }
+
         if (node->right) {
             helper(node->right, K - 1, parent, visited, res);
         }
+
         if (parent[node]) {
             helper(parent[node], K - 1, parent, visited, res);
         }
     }
-};
-```
+};```
